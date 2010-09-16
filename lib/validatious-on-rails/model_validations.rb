@@ -160,8 +160,8 @@ module ValidatiousOnRails
     #
     def confirmation_of(validation)
       validators = []
-      field_id = unless validation.active_record.present?
-      "#{validation.active_record.name.tableize.singularize.gsub('/', '_')}_#{validation.name}"
+      field_id = if validation.active_record.present?
+        "#{validation.active_record.name.tableize.singularize.gsub('/', '_')}_#{validation.name}"
       else
         "#{validation.name}"
       end

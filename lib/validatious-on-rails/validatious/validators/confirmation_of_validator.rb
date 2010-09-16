@@ -13,7 +13,7 @@ module ValidatiousOnRails
         self.message = self.class.generate_message(:confirmation)
         self.params = %w[field-id]
         self.fn = %{
-          return value === v2.$f(params[0]).getValue();
+          return value === v2.$f(params.join('_')).getValue();
         }
       end
 
